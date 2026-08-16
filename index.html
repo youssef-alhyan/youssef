@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مكتبة أيوب | الأدوات المدرسية</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="container nav">
+
+        <a href="#" class="logo">
+            <span class="logo-icon">📚</span>
+            <div>
+                <h1>مكتبة أيوب</h1>
+                <small>كل ما تحتاجه للدراسة</small>
+            </div>
+        </a>
+
+        <nav class="menu">
+            <a href="#home">الرئيسية</a>
+            <a href="#products">المنتجات</a>
+            <a href="#categories">الأقسام</a>
+            <a href="#about">من نحن</a>
+            <a href="#contact">اتصل بنا</a>
+        </nav>
+
+        <button class="cart-btn" onclick="openCart()">
+            🛒
+            <span id="cartCount">0</span>
+        </button>
+
+        <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-content">
+
+        <div class="hero-text">
+
+            <span class="badge">🎒 مرحباً بكم في مكتبة أيوب</span>
+
+            <h2>
+                كل أدواتك المدرسية
+                <span>في مكان واحد</span>
+            </h2>
+
+            <p>
+                اكتشف مجموعة متنوعة من الأدوات المدرسية،
+                اللوازم المكتبية وأدوات الرسم بجودة ممتازة وأثمنة مناسبة.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#products" class="btn primary">
+                    🛍️ اكتشف المنتجات
+                </a>
+
+                <a href="#contact" class="btn secondary">
+                    📞 تواصل معنا
+                </a>
+
+            </div>
+
+            <div class="features">
+
+                <div>
+                    <strong>⭐</strong>
+                    <span>جودة ممتازة</span>
+                </div>
+
+                <div>
+                    <strong>💰</strong>
+                    <span>أثمنة مناسبة</span>
+                </div>
+
+                <div>
+                    <strong>🚚</strong>
+                    <span>خدمة سريعة</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="floating-card card-one">
+                ✏️
+                <span>أقلام</span>
+            </div>
+
+            <div class="school-bag">
+                🎒
+            </div>
+
+            <div class="floating-card card-two">
+                📒
+                <span>دفاتر</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section" id="categories">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>تصفح منتجاتنا</span>
+
+            <h2>أقسام المكتبة</h2>
+
+            <p>
+                اختر القسم الذي تبحث عنه
+            </p>
+
+        </div>
+
+
+        <div class="categories">
+
+            <div class="category" onclick="filterProducts('all')">
+                <div class="category-icon">📚</div>
+                <h3>الكل</h3>
+                <p>جميع المنتجات</p>
+            </div>
+
+            <div class="category" onclick="filterProducts('pens')">
+                <div class="category-icon">🖊️</div>
+                <h3>الأقلام</h3>
+                <p>أقلام متنوعة</p>
+            </div>
+
+            <div class="category" onclick="filterProducts('notebooks')">
+                <div class="category-icon">📓</div>
+                <h3>الدفاتر</h3>
+                <p>دفاتر مدرسية</p>
+            </div>
+
+            <div class="category" onclick="filterProducts('drawing')">
+                <div class="category-icon">🎨</div>
+                <h3>الرسم</h3>
+                <p>أدوات الرسم</p>
+            </div>
+
+            <div class="category" onclick="filterProducts('bags')">
+                <div class="category-icon">🎒</div>
+                <h3>المحافظ</h3>
+                <p>محافظ مدرسية</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="section products-section" id="products">
+
+    <div class="container">
+
+        <div class="products-header">
+
+            <div class="section-title left">
+
+                <span>اختياراتنا</span>
+
+                <h2>منتجاتنا</h2>
+
+                <p>بعض المنتجات المتوفرة في مكتبة أيوب</p>
+
+            </div>
+
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="🔎 ابحث عن منتج..."
+                    onkeyup="searchProducts()"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="products-grid" id="productsGrid">
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product" data-category="pens" data-name="قلم أزرق">
+
+                <div class="product-image blue">
+                    🖊️
+
+                    <span class="discount">جديد</span>
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">أقلام</span>
+
+                    <h3>قلم أزرق</h3>
+
+                    <p>قلم للكتابة بجودة ممتازة</p>
+
+                    <div class="product-bottom">
+
+                        <strong>2.50 DH</strong>
+
+                        <button onclick="addToCart('قلم أزرق', 2.5)">
+                            🛒
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product" data-category="notebooks" data-name="دفتر مدرسي">
+
+                <div class="product-image yellow">
+                    📓
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">دفاتر</span>
+
+                    <h3>دفتر مدرسي</h3>
+
+                    <p>دفتر مناسب للدراسة اليومية</p>
+
+                    <div class="product-bottom">
+
+                        <strong>8.00 DH</strong>
+
+                        <button onclick="addToCart('دفتر مدرسي', 8)">
+                            🛒
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product" data-category="drawing" data-name="أقلام التلوين">
+
+                <div class="product-image pink">
+                    🎨
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">الرسم</span>
+
+                    <h3>أقلام التلوين</h3>
+
+                    <p>مجموعة متنوعة للرسم والتلوين</p>
+
+                    <div class="product-bottom">
+
+                        <strong>18.00 DH</strong>
+
+                        <button onclick="addToCart('أقلام التلوين', 18)">
+                            🛒
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product" data-category="pens" data-name="أقلام جاف">
+
+                <div class="product-image purple">
+                    🖍️
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">أقلام</span>
+
+                    <h3>أقلام جاف</h3>
+
+                    <p>مجموعة أقلام للمدرسة والمكتب</p>
+
+                    <div class="product-bottom">
+
+                        <strong>10.00 DH</strong>
+
+                        <button onclick="addToCart('أقلام جاف', 10)">
+                            🛒
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 5 -->
+
+            <div class="product" data-category="bags" data-name="محفظة مدرسية">
+
+                <div class="product-image green">
+                    🎒
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">محافظ</span>
+
+                    <h3>محفظة مدرسية</h3>
+
+                    <p>محفظة عملية ومناسبة للمدرسة</p>
+
+                    <div class="product-bottom">
+
+                        <strong>120.00 DH</strong>
+
+                        <button onclick="addToCart('محفظة مدرسية', 120)">
+                            🛒
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 6 -->
+
+            <div class="product" data-category="notebooks" data-name="دفتر ملاحظات">
+
+                <div class="product-image orange">
+                    📔
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">دفاتر</span>
+
+                    <h3>دفتر ملاحظات</h3>
+
+                    <p>مثالي للملاحظات والأفكار</p>
+
+                    <div class="product-bottom">
+
+                        <strong>12.00 DH</strong>
+
+                        <button onclick="addToCart('دفتر ملاحظات', 12)">
+                            🛒
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <div class="container about-content">
+
+        <div class="about-image">
+            📚
+        </div>
+
+        <div class="about-text">
+
+            <span>من نحن؟</span>
+
+            <h2>مكتبة أيوب</h2>
+
+            <p>
+                مكتبة أيوب هي مكتبة متخصصة في توفير الأدوات المدرسية
+                واللوازم المكتبية وأدوات الرسم، ونسعى دائماً لتوفير
+                منتجات متنوعة بجودة جيدة وأثمنة مناسبة.
+            </p>
+
+            <div class="about-list">
+
+                <div>✓ منتجات متنوعة</div>
+                <div>✓ جودة ممتازة</div>
+                <div>✓ أثمنة مناسبة</div>
+                <div>✓ تعامل محترم مع الزبناء</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="section contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>تواصل معنا</span>
+
+            <h2>مرحبا بكم في مكتبة أيوب</h2>
+
+            <p>
+                عندك شي سؤال؟ تواصل معنا
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+
+                <div>📍</div>
+
+                <h3>العنوان</h3>
+
+                <p>ضع عنوان المكتبة هنا</p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div>📞</div>
+
+                <h3>الهاتف</h3>
+
+                <p> 94 37 32 72 07 </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div>📧</div>
+
+                <h3>البريد الإلكتروني</h3>
+
+                <p>ssfalhyane@gmail.com</p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div>🕐</div>
+
+                <h3>أوقات العمل</h3>
+
+                <p>الإثنين - السبت</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container footer-content">
+
+        <div>
+
+            <h2>📚 مكتبة أيوب</h2>
+
+            <p>
+                كل ما تحتاجه للدراسة في مكان واحد.
+            </p>
+
+        </div>
+
+
+        <div class="social">
+
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">WhatsApp</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 مكتبة أيوب - جميع الحقوق محفوظة
+
+    </div>
+
+</footer>
+
+
+<!-- ================= CART ================= -->
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<div class="cart" id="cart">
+
+    <div class="cart-header">
+
+        <h2>🛒 سلة المشتريات</h2>
+
+        <button onclick="closeCart()">✕</button>
+
+    </div>
+
+
+    <div class="cart-items" id="cartItems">
+
+        <p class="empty-cart">
+            السلة فارغة 🛒
+        </p>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+        <div class="total">
+
+            <span>المجموع:</span>
+
+            <strong>
+                <span id="cartTotal">0</span> DH
+            </strong>
+
+        </div>
+
+        <button class="checkout" onclick="checkout()">
+            تأكيد الطلب
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
