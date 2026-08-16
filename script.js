@@ -271,7 +271,7 @@ function checkout() {
        برقم WhatsApp ديال المكتبة
     */
 
-    const phone = "2127723794";
+    const phone = "212772323794";
 
 
     const whatsappURL =
